@@ -17,9 +17,16 @@
                     <section class="jumbotron mt-5  welcome text-center ">
                         <div class="container">
                         <h1><span class="brand">HighTech</span>QA <hr></h1>
+
+                        <div v-if="!dataLoaded" class="d-flex text-center justify-content-center">
+                            <div style="position:absolute; top:45%" class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+
                         <div v-for="(question, index) in questions" :key="index" class="brdr mb-3 text-left">
                             <div class="card-header">
-                                <p class="w-25">
+                                <p >
                                     [&check;] {{ question }} 
                                 </p>
                                 <router-link style="color:white; font-family:Verdana" id="questions " :to="'/question/' + index">
@@ -56,7 +63,8 @@ export default {
             },
             questions:new Array(),
             addQ:false,
-            showStep :5
+            showStep :5,
+            dataLoaded:false
         }
     },
     methods:{
@@ -80,7 +88,7 @@ export default {
             ) .then(data=> {
                 const resultQuestions = [];
                 for (let key in data){
-                    console.log(key)
+                    this.dataLoaded = true
                     resultQuestions.push(data[key].question)
                 }
                 this.questions = resultQuestions;
