@@ -9,7 +9,7 @@
                         <form class="form-group">
                             <label>Question</label>
                             <textarea v-model="question.question" type="text" class="form-control"></textarea>
-                            <a href="#questions" @click="addQuestion" class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</a>
+                            <a  @click="addQuestion" class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</a>
                         </form> 
                         <!-- https://hightech-qa.firebaseio.com/ -->
                     </div>
@@ -19,14 +19,15 @@
                         <h1><span class="brand">HighTech</span>QA <hr></h1>
                         <div v-for="(question, index) in questions" :key="index" class="brdr mb-3 text-left">
                             <div class="card-header">
-                                <p id="questions ">
+                                <p class="w-25">
                                     [&check;] {{ question }} 
                                 </p>
+                                <router-link style="color:white; font-family:Verdana" id="questions " :to="'/question/' + index">
                                     <button class="float-right btn btn-success"> View</button>
+                                </router-link>
                             </div>
                         </div>
                         </div>
-                        <button class="brdr btn btn-warning">Get Question</button>
                     </section>
                 </div>
                 <div class="col-sm-3 mt-5">
@@ -53,25 +54,25 @@ export default {
             question:{
                 question:''
             },
-            questions:[],
+            questions:new Array(),
             addQ:false,
             showStep :5
         }
     },
     methods:{
         addQuestion(){
-            this.questions.push(this.question.question);
-            this.$http.post("https://hightech-qa.firebaseio.com/data.json", this.question).then(response =>{
+            // this.questions.push(this.question.question);
+            this.$http.post("", this.question).then(response =>{
                     console.log(response);
                 }, error =>{
                     console.log("error => " + error)
                 });
             
-            this.addQ = false;
+            // this.addQ = false;
         }
     },
     created(){
-        this.$http.get('https://hightech-qa.firebaseio.com/data.json')
+        this.$http.get('')
             .then(
                 response =>{
                     return response.json();
@@ -79,10 +80,11 @@ export default {
             ) .then(data=> {
                 const resultQuestions = [];
                 for (let key in data){
+                    console.log(key)
                     resultQuestions.push(data[key].question)
                 }
                 this.questions = resultQuestions;
-            })
+        })
     }
 }
 </script>

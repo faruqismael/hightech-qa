@@ -35,6 +35,7 @@
 </script>
 
 <style>
+
   /* .slide-enter-active, .slide-leave-active {
     transition: opacity .2s ease-out, transform .51s;
   }

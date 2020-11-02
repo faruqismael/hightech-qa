@@ -7,6 +7,8 @@ import VueResource from 'vue-resource'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
+Vue.http.options.root = "https://hightech-qa.firebaseio.com/data.json"
+
 const router = new VueRouter({
   mode:"history",
   routes:Routes
