@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         </div>
-                
+                        <button class="brdr btn btn-warning">Get Question</button>
                     </section>
                 </div>
                 <div class="col-sm-3 mt-5">
@@ -53,22 +53,9 @@ export default {
             question:{
                 question:''
             },
-            questions:[
-                'what is firebase?',
-                'how to use react with my django?',
-                'which is the best from react and angular?',
-                'what is firebase?',
-                'how to use react with my django?',
-                'which is the best from react and angular?',
-                'what is firebase?',
-                'how to use react with my django?',
-                'which is the best from react and angular?',
-                'what is firebase?',
-                'how to use react with my django?',
-                'which is the best from react and angular?',
-                'what is firebase?'
-            ],
-            addQ:false
+            questions:[],
+            addQ:false,
+            showStep :5
         }
     },
     methods:{
@@ -82,6 +69,20 @@ export default {
             
             this.addQ = false;
         }
+    },
+    created(){
+        this.$http.get('https://hightech-qa.firebaseio.com/data.json')
+            .then(
+                response =>{
+                    return response.json();
+                }
+            ) .then(data=> {
+                const resultQuestions = [];
+                for (let key in data){
+                    resultQuestions.push(data[key].question)
+                }
+                this.questions = resultQuestions;
+            })
     }
 }
 </script>
