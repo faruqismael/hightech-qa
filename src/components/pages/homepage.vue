@@ -8,9 +8,10 @@
                         <h2>Add Question</h2>
                         <form class="form-group">
                             <label>Question</label>
-                            <textarea v-model="question" type="text" class="form-control"></textarea>
-                            <a href="#questions" @click.prevent="addQuestion" class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</a>
-                        </form>
+                            <textarea v-model="question.question" type="text" class="form-control"></textarea>
+                            <a href="#questions" @click="addQuestion" class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</a>
+                        </form> 
+                        <!-- https://hightech-qa.firebaseio.com/ -->
                     </div>
                 <div class="col-sm-9 " >
                     <section class="jumbotron mt-5  welcome text-center ">
@@ -49,7 +50,9 @@ export default {
     },
     data(){
         return{
-            question:'',
+            question:{
+                question:''
+            },
             questions:[
                 'what is firebase?',
                 'how to use react with my django?',
@@ -70,8 +73,13 @@ export default {
     },
     methods:{
         addQuestion(){
-            this.questions.push(this.question);
-            this.question= '';
+            this.questions.push(this.question.question);
+            this.$http.post("https://hightech-qa.firebaseio.com/data.json", this.question).then(response =>{
+                    console.log(response);
+                }, error =>{
+                    console.log("error => " + error)
+                });
+            
             this.addQ = false;
         }
     }

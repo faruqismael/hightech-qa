@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-app class="p-3fixed-top"></header-app>
+    <header-app class="fixed-top"></header-app>
      <!---->
     <transition name="fade" >
       <router-view></router-view>
