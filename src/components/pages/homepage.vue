@@ -16,15 +16,12 @@
                     <section class="jumbotron mt-5  welcome text-center ">
                         <div class="container">
                         <h1><span class="brand">HighTech</span>QA <hr></h1>
-                        <div v-for="(question, index) in questions" :key="index" class="mb-3 text-left">
+                        <div v-for="(question, index) in questions" :key="index" class="brdr mb-3 text-left">
                             <div class="card-header">
                                 <p id="questions ">
                                     [&check;] {{ question }} 
                                 </p>
-                                <div class="float-right">
-                                    <button class="btn btn-success">Answer</button>
-                                    <button class="btn btn-success">View</button>
-                                </div>
+                                    <button class="float-right btn btn-success"> View</button>
                             </div>
                         </div>
                         </div>
@@ -32,10 +29,10 @@
                     </section>
                 </div>
                 <div class="col-sm-3 mt-5">
-                    <side-bar></side-bar>
+                    <side-bar></side-bar> 
                 </div>
                 <div class="m-3 text-right fixed-bottom">
-                    <a href="#top" @click="addQ = true" class="btn btn-warning">Add Question</a>
+                    <a href="#top" @click="addQ = true" class="brdr btn btn-warning">Add Question</a>
                 </div>
             </div>
         </div>
@@ -56,7 +53,17 @@ export default {
             questions:[
                 'what is firebase?',
                 'how to use react with my django?',
-                'which is the best from react and angular?'
+                'which is the best from react and angular?',
+                'what is firebase?',
+                'how to use react with my django?',
+                'which is the best from react and angular?',
+                'what is firebase?',
+                'how to use react with my django?',
+                'which is the best from react and angular?',
+                'what is firebase?',
+                'how to use react with my django?',
+                'which is the best from react and angular?',
+                'what is firebase?'
             ],
             addQ:false
         }
