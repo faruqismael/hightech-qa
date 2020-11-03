@@ -9,6 +9,7 @@
 
       <div v-else class="form-group">
           <h1>{{question.question}}</h1>
+          <h1>{{question.answer}}</h1>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis accusamus voluptatem pariatur quia dolor iure iste eaque. Aut, vero necessitatibus porro ab, totam corporis sint quod amet est non quaerat?</p>
           <!-- <button class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</button> -->
       </div>

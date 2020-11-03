@@ -19,7 +19,7 @@
                         <h1><span class="brand">HighTech</span>QA <hr></h1>
 
                         <div v-if="!dataLoaded" class="d-flex text-center justify-content-center">
-                            <div style="position:absolute; top:45%" class="spinner-border" role="status">
+                            <div style="position:absolute; top:35%" class="spinner-border" role="status">
                                 <span class="sr-only">Loading...</span>
                             </div>
                         </div>
