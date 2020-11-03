@@ -8,8 +8,8 @@
                         <h2>Add Question</h2>
                         <form class="form-group">
                             <label>Question</label>
-                            <textarea v-model="question.question" type="text" class="form-control"></textarea>
-                            <a  @click="addQuestion" class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</a>
+                            <textarea @keyup.ctrl.enter="addQuestion" v-model="question.question" type="text" class="form-control"></textarea>
+                            <a   @click="addQuestion" class="btn btn-primary p-2 mr-3 mt-4 w-100">Add</a>
                         </form> 
                         <!-- https://hightech-qa.firebaseio.com/ -->
                     </div>
@@ -70,12 +70,13 @@ export default {
     methods:{
         addQuestion(){
             // this.questions.push(this.question.question);
-            this.$http.post("", this.question).then(response =>{
+            this.$http.post("https://hightech-qa.firebaseio.com/data.json", this.question).then(response =>{
                     console.log(response);
                 }, error =>{
                     console.log("error => " + error)
                 });
             
+            this.question.question = ''
             // this.addQ = false;
         }
     },

@@ -2,7 +2,7 @@
   <div class="mb-5"> <!-- class fixed-top-->
       <!-- header goes here -->
       <nav style="background-color:#62d2a2 !important" class="navbar-container navbar navbar-expand-lg navbar-light bg-light">
-        <h3 class="navbar-brand " ><router-link to="/">HighTech</router-link></h3>
+        <h3 class="navbar-brand " ><router-link to="/">HT | QA</router-link></h3>
         <button @click="data_toggle =!data_toggle" class="navbar-toggler" type="button" :data-toggle="data_toggle" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
